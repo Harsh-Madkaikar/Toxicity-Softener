@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Toxicity Softener",
+  "version": "1.0.0",
+  "description": "Detects potentially toxic text and offers a more constructive rewrite.",
+  "permissions": [],
+  "host_permissions": [
+    "https://REPLACE-WITH-YOUR-API.onrender.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://mail.google.com/*",
+        "https://web.whatsapp.com/*",
+        "https://www.instagram.com/*",
+        "https://instagram.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "Toxicity Softener"
+  }
+}

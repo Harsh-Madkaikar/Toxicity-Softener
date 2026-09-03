@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: toxicity-softener-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn backend.app:app
+    healthCheckPath: /health
